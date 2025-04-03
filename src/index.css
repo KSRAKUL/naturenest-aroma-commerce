@@ -1,101 +1,85 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 60 33% 98%;
+    --foreground: 24 10% 10%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 60 33% 98%;
+    --card-foreground: 24 10% 10%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 24 10% 10%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 142 43% 35%;
+    --primary-foreground: 60 33% 98%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 36 41% 52%;
+    --secondary-foreground: 60 33% 98%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 60 10% 96%;
+    --muted-foreground: 25 5% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 142 30% 94%;
+    --accent-foreground: 142 43% 35%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 60 33% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 20 5% 90%;
+    --input: 20 5% 90%;
+    --ring: 142 43% 35%;
 
     --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-}
-
-@layer base {
   * {
     @apply border-border;
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
   }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif tracking-tight;
+  }
+}
+
+@layer components {
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .btn-primary {
+    @apply bg-sage-600 hover:bg-sage-700 text-white font-medium py-2.5 px-6 rounded-md transition-all duration-200 inline-flex items-center justify-center;
+  }
+  
+  .btn-secondary {
+    @apply bg-transparent border border-sage-600 text-sage-600 hover:bg-sage-50 font-medium py-2.5 px-6 rounded-md transition-all duration-200 inline-flex items-center justify-center;
+  }
+  
+  .link-underline {
+    @apply relative after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-current after:transition-transform after:duration-300 hover:after:origin-bottom-left hover:after:scale-x-100;
+  }
+  
+  .product-card {
+    @apply bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300;
+  }
+  
+  .input-field {
+    @apply block w-full rounded-md border-0 py-2 px-3.5 text-foreground shadow-sm ring-1 ring-inset ring-border placeholder:text-muted-foreground focus:ring-2 focus:ring-inset focus:ring-sage-500 sm:text-sm sm:leading-6;
+  }
+  
+  .fade-in {
+    @apply animate-fade-in;
+  }
+}
+
+.hero-pattern {
+  background-color: #f8f9f3;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M54.627 0l.83.828-1.415 1.415L51.8 0h2.827zM5.373 0l-.83.828L5.96 2.243 8.2 0H5.374zM48.97 0l3.657 3.657-1.414 1.414L46.143 0h2.828zM11.03 0L7.372 3.657 8.787 5.07 13.857 0H11.03zm32.284 0L49.8 6.485 48.384 7.9l-7.9-7.9h2.83zM16.686 0L10.2 6.485 11.616 7.9l7.9-7.9h-2.83zm20.97 0l9.315 9.314-1.414 1.414L34.828 0h2.83zM22.344 0L13.03 9.314l1.414 1.414L25.172 0h-2.83zM32 0l12.142 12.142-1.414 1.414L30 2.828 17.272 15.556l-1.414-1.414L28 2.828 17.272 0H32zM0 17.272l2.828 2.83-1.414 1.414-1.414-1.42L0 17.27zM0 32l2.828-2.83-1.414-1.413-1.414 1.414L0 32zM0 22.344l5.656 5.656 1.414-1.414L1.414 20.93 0 22.344zm0 5.656L5.656 22.35 4.242 20.93 0 25.17v2.83zM0 28l5.656-5.657-1.414-1.415L0 25.172V28zm0 5.657L5.656 28 4.242 26.585 0 30.828v2.83zM0 38.627l8.485-8.485-1.414-1.414L0 35.8v2.827zm0-5.657L8.485 24.5 7.07 23.085 0 30.142v2.83zm0 11.314L8.485 35.8 7.07 34.387 0 41.456v2.83zm0-5.657l8.485-8.485-1.414-1.414L0 35.8v2.826zm0 11.314L8.485 41.27 7.07 39.855 0 46.94v2.83zm0-5.657l8.485-8.485-1.414-1.415L0 41.456v2.83zm0 11.314l8.485-8.485-1.414-1.414L0 47.02v2.82zm0-5.657l8.485-8.485-1.414-1.414L0 41.456v2.83zM54.627 60L45.3 50.67l-1.414 1.415 9.9 9.9h.84zm-5.657 0L39.642 50.67l-1.414 1.415L49.71 60h-.74zm-5.656 0l-9.9-9.9-1.415 1.415L41.456 60h1.915zm-5.657 0l-8.485-8.485-1.414 1.414L36.8 60h.713zm-5.657 0l-7.07-7.07-1.415 1.414L30.53 60h1.627zm-5.657 0l-5.657-5.657-1.414 1.415L25.574 60h1.002zM22 60l-4.243-4.242-1.414 1.414L20.587 60H22zm-5.657 0l-2.83-2.83-1.413 1.416L15.544 60h.8zM11.03 60L8.2 57.17l-1.415 1.414L10.9 60h.13zM5.373 60L2.543 57.17l-1.414 1.414L4.7 60h.673zM0 54.627l4.242 4.242L5.657 57.45 0 51.8v2.827zm0-5.657L9.9 54.627l1.414-1.414L0 41.456v7.514zm0-5.657l14.142 14.14 1.415-1.413L0 35.8v7.514zm0-5.657l18.385 18.385 1.414-1.414L0 30.142v7.514zM0 32l22.627 22.627 1.414-1.414L0 30.142V32zm0-5.657L27.87 54.627l1.415-1.414L0 24.5v1.843zm0 2.828l.486.485L27.87 54.627l1.415-1.414.314-.315L0 24.5v4.67zm0-7.514L32 54.627l1.414-1.414L0 19.885v1.83zm0 2.83L32 54.626l1.414-1.413L0 19.884v4.67zm0-7.513l36.243 36.243 1.414-1.414L0 17.243v-1.83zm0 2.83l36.243 36.242L37.657 53.2 0 15.544v4.668zM0 8.03l41.9 41.9 1.413-1.415L0 6.6v1.428zm0 2.83L41.9 52.742l1.413-1.414L0 6.6v4.257z' fill='%2392af8e' fill-opacity='0.06' fill-rule='evenodd'/%3E%3C/svg%3E");
 }
